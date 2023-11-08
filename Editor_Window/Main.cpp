@@ -5,7 +5,7 @@
 #include "Editor_Window.h"
 #include "..\\Inny_Engine_SOURCE\iApplication.h"
 
-Application app;
+in::Application application;
 
 #define MAX_LOADSTRING 100
 
@@ -71,6 +71,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             // 메세지가 없을 경우 여기서 처리
             // 게임 로직이 돌아가면 된다
+
+            application.Run();
         }
     }
 
@@ -132,6 +134,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   application.Initialize(hWnd);
+
    if (!hWnd)
    {
       return FALSE;
@@ -179,36 +183,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-
-            // 파란색 브러쉬 생성
-            HBRUSH BlueBrush = CreateSolidBrush(RGB(0, 0, 255));
-            
-            // 파란색 브러쉬 DC 선택 및 현재 브러쉬 반환
-            HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, BlueBrush);
-
-            Rectangle(hdc, 10, 10, 100, 100);
-            
-            // 다시 현재 원본 브러쉬 선택
-            SelectObject(hdc, OldBrush);
-
-            // 파란색 브러쉬 삭제
-            DeleteObject(BlueBrush);
-
-            HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-            HPEN OldPen = (HPEN)SelectObject(hdc, redPen);
-
-            Ellipse(hdc, 200, 200, 300, 300);
-
-            SelectObject(hdc, OldPen);
-            DeleteObject(redPen);
-
-            // 기본으로 자주 사용하는 GDI 오브젝트를 미리 DC 내에 만들어 둠 -> 스톡 오브젝트
-
-            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            OldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-
-            Rectangle(hdc, 400, 400, 500, 500);
-            SelectObject(hdc, OldBrush);
 
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
