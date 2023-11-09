@@ -1,4 +1,5 @@
 #include "iApplication.h"
+#include "iInput.h"
 
 namespace in
 {
@@ -19,6 +20,8 @@ namespace in
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(mHwnd);
+
+		Input::Initialize();
 	}
 
 	void Application::Run()
@@ -31,9 +34,11 @@ namespace in
 
 	void Application::Updata()
 	{
+		Input::Updata();
+
 		mPlayer.Updata();
-		mPlayer_Red.Updata();
-		mPlayer_Monster.Updata();
+		//mPlayer_Red.Updata();
+		//mPlayer_Monster.Updata();
 	}
 
 	void Application::LateUpdata()
@@ -44,7 +49,7 @@ namespace in
 	void Application::Render()
 	{
 		mPlayer.Render(mHdc);
-		mPlayer_Red.Render(mHdc);
-		mPlayer_Monster.Render(mHdc);
+		//mPlayer_Red.Render(mHdc);
+		//mPlayer_Monster.Render(mHdc);
 	}
 }
