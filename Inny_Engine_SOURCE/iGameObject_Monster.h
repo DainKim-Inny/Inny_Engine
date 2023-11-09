@@ -3,14 +3,14 @@
 
 namespace in
 {
-	class GameObject
+	class GameObject_Monster
 	{
 	public:
-		GameObject();
-		~GameObject();
+		GameObject_Monster();
+		~GameObject_Monster();
 
 		void Updata();
-		void LateUpdata();
+		void LataUpdata();
 		void Render(HDC hdc);
 
 		void SetPosition(float x, float y)
@@ -23,8 +23,8 @@ namespace in
 		float GetPositionY() { return mY; }
 
 	private:
-		// 게임 오브젝트의 좌표
 		float mX;
 		float mY;
+		float mSpeed;
 	};
 }

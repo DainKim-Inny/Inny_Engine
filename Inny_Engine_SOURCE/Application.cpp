@@ -33,7 +33,7 @@ namespace in
 	{
 		mPlayer.Updata();
 		mPlayer_Red.Updata();
-
+		mPlayer_Monster.Updata();
 	}
 
 	void Application::LateUpdata()
@@ -45,5 +45,6 @@ namespace in
 	{
 		mPlayer.Render(mHdc);
 		mPlayer_Red.Render(mHdc);
+		mPlayer_Monster.Render(mHdc);
 	}
 }

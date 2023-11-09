@@ -3,6 +3,7 @@
 namespace in
 {
 	GameObject_Red::GameObject_Red()
+		: mX(0.0f), mY(0.0f)
 	{
 
 	}
@@ -16,7 +17,7 @@ namespace in
 	{
 		if (GetAsyncKeyState('A') & 0x8000)
 		{
-			mX -= 0.1f;
+			mX -= 0.01f;
 		}
 
 		if (GetAsyncKeyState('D') & 0x8000)

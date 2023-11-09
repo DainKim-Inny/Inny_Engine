@@ -2,6 +2,7 @@
 #include "CommonInclude.h"
 #include "iGameObject.h"
 #include "iGameObject_Red.h"
+#include "iGameObject_Monster.h"
 
 namespace in
 {
@@ -24,6 +25,7 @@ namespace in
 		
 		GameObject mPlayer;
 		GameObject_Red mPlayer_Red;
+		GameObject_Monster mPlayer_Monster;
 	};
 }
 

@@ -1,9 +1,9 @@
 #include "iGameObject.h"
 
-
 namespace in
 {
 	GameObject::GameObject()
+		: mX(0.0f), mY(0.0f)
 	{
 
 	}
@@ -17,7 +17,7 @@ namespace in
 	{
 		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 		{
-			mX -= 0.1f;
+			mX -= 0.01f;
 		}
 
 		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
