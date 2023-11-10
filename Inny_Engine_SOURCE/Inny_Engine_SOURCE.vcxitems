@@ -20,6 +20,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Monster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Red.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ITime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
@@ -27,5 +28,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Monster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Red.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)iInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ITime.cpp" />
   </ItemGroup>
 </Project>

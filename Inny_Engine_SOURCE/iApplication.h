@@ -12,7 +12,7 @@ namespace in
 		Application();
 		~Application();
 
-		void Initialize(HWND hwnd);
+		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
 
 		void Updata();
@@ -22,10 +22,15 @@ namespace in
 	private:
 		HWND mHwnd;
 		HDC mHdc;
-		
+
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+
+		UINT mWidth;
+		UINT mHeight;
+			
 		GameObject mPlayer;
 		GameObject_Red mPlayer_Red;
 		GameObject_Monster mPlayer_Monster;
 	};
 }
-
