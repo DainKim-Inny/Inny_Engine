@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include "..\\Inny_Engine_SOURCE\iApplication.h"
+#include "..\\Inny_Engine_Window\iLoadScenes.h"
 
 in::Application application;
 
@@ -45,13 +46,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-
-    // GetMessage : 프로세스에서 발생한 메세지를 메세지 큐에 가져오는 함수
-    // GetMessage는 메세지 큐에 아무것도 없으면 아무 메세지도 가져오지 않는다
-
-    // PeekMessage : 메세지 큐의 메세지 유무에 관계없이 함수가 리턴
-    // PeekMessage의 리턴 값이 TRUE인 경우, 메세지가 있고 FALSE면 없다
-
     while (true)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -69,22 +63,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            // 메세지가 없을 경우 여기서 처리
-            // 게임 로직이 돌아가면 된다
-
             application.Run();
         }
     }
-
-    //// 기본 메시지 루프입니다:
-    //while (GetMessage(&msg, nullptr, 0, 0))
-    //{
-    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-    //    {
-    //        TranslateMessage(&msg);
-    //        DispatchMessage(&msg);
-    //    }
-    //}
 
     return (int) msg.wParam;
 }
@@ -146,6 +127,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // load Scene
+   in::LoadScenes();
 
    return TRUE;
 }

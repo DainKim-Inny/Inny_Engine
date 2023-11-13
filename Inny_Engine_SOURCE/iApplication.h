@@ -3,6 +3,9 @@
 #include "iGameObject.h"
 #include "iGameObject_Red.h"
 #include "iGameObject_Shoot.h"
+#include "iScene.h"
+
+using namespace std;
 
 namespace in
 {
@@ -14,10 +17,16 @@ namespace in
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
-
+		
 		void Updata();
 		void LateUpdata();
 		void Render();
+
+	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+
+
 
 	private:
 		HWND mHwnd;
@@ -28,10 +37,15 @@ namespace in
 
 		UINT mWidth;  // 해상도 저장
 		UINT mHeight;  // 해상도 저장
-			
-		GameObject mPlayer;
-		GameObject_Red mPlayer_Red;
-		GameObject_Shoot* mShoot[1000] = {};
-		int Counting;
+
+		//GameObject_Red mPlayer_Red;
+		//GameObject_Shoot* mShoot[1000] = {};
+		//int Counting;
+		//GameObject mPlayer;
+
+		// vector <GameObject*> mGameObject;  // GameOjbect vector화
+
+		// Application이 Scene을 갖고있고 Scene이 GameObject를 가진다
+		vector<Scene*> mScenes;
 	};
 }

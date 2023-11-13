@@ -49,10 +49,10 @@ namespace in
 	void GameObject::Render(HDC hdc)
 	{
 		// 督空事 持失
-		HBRUSH BlueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		HBRUSH BlueBrush = CreateSolidBrush(RGB(rand()% 255, rand() % 255, rand() % 255));
 		HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, BlueBrush);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, OldBrush);
 		DeleteObject(BlueBrush);

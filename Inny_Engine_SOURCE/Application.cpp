@@ -1,7 +1,7 @@
 #include "iApplication.h"
 #include "iInput.h"
 #include "ITime.h"
-#include "iGameObject_Shoot.h"
+#include "iSceneManager.h"
 
 namespace in
 {
@@ -11,8 +11,7 @@ namespace in
 		mWidth(0),
 		mHeight(0),
 		mBackHdc(nullptr),
-		mBackBitmap(nullptr),
-		Counting(0)
+		mBackBitmap(nullptr)
 	{
 
 	}
@@ -51,10 +50,10 @@ namespace in
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
 		DeleteObject(oldBitmap);
 
-		mPlayer.SetPosition(0, 0);
-
 		Input::Initialize();
 		Time::Initialize();
+
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -69,23 +68,7 @@ namespace in
 		Input::Updata();
 		Time::Updata();
 
-		mPlayer.Updata();
-
-		if (Input::GetKeyDown(eKeyCode::Space))
-		{
-			GameObject_Shoot* shoot = new GameObject_Shoot;
-			mShoot[Counting] = shoot;
-			mShoot[Counting]->SetPosition(mPlayer.GetPositionX()+200, mPlayer.GetPositionY()+150);
-			Counting++;
-		}
-
-		for (int i = 0; i < Counting; i++)
-		{
-			if (mShoot[i] != 0)
-			{
-				mShoot[i]->Updata();
-			}
-		}
+		SceneManager::Updata();
 	}
 
 	void Application::LateUpdata()
@@ -93,23 +76,25 @@ namespace in
 
 	}
 
+	void Application::clearRenderTarget()
+	{
+		Rectangle(mBackHdc, -1, -1, 1601, 901);
+	}
+
+	void Application::copyRenderTarget(HDC source, HDC dest)
+	{
+		BitBlt(dest, 0, 0, mWidth, mHeight
+			, source, 0, 0, SRCCOPY);
+	}
+
 	void Application::Render()
 	{
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-		mPlayer.Render(mBackHdc);
 
-		for (int i = 0; i < Counting; i++)
-		{
-			if (mShoot[i] != 0)
-			{
-				mShoot[i]->Render(mBackHdc);
-			}
-		}
+		SceneManager::Render(mBackHdc);
 
-		// 백버퍼에 있는 것을 원본 버퍼에 복사(그려준다)
-		BitBlt(mHdc, 0, 0, mWidth, mHeight
-			, mBackHdc, 0, 0, SRCCOPY);
+		copyRenderTarget(mBackHdc, mHdc);
 	}
 }
