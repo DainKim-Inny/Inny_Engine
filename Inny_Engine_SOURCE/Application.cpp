@@ -1,6 +1,7 @@
 #include "iApplication.h"
 #include "iInput.h"
 #include "ITime.h"
+#include "iGameObject_Shoot.h"
 
 namespace in
 {
@@ -10,7 +11,8 @@ namespace in
 		mWidth(0),
 		mHeight(0),
 		mBackHdc(nullptr),
-		mBackBitmap(nullptr)
+		mBackBitmap(nullptr),
+		Counting(0)
 	{
 
 	}
@@ -27,14 +29,17 @@ namespace in
 		mHdc = GetDC(mHwnd);
 
 		RECT rect = { 0, 0, width, height };
+
+		// 내 윈도우의 작업 영역 크기를 rect로 조절하겠다
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
 		mWidth = rect.right - rect.left;
 		mHeight = rect.bottom - rect.top;
 
+		// rect로 조정한 윈도우를 새로 셋팅
 		SetWindowPos(mHwnd, nullptr, 0, 0
-			, rect.right - rect.left
-			, rect.bottom - rect.top, 0);
+			, mWidth
+			, mHeight, 0);
 		ShowWindow(mHwnd, true);
 
 		// 윈도우 해상도에 맞는 백버퍼(도화지) 생성
@@ -65,8 +70,22 @@ namespace in
 		Time::Updata();
 
 		mPlayer.Updata();
-		//mPlayer_Red.Updata();
-		//mPlayer_Monster.Updata();
+
+		if (Input::GetKeyDown(eKeyCode::Space))
+		{
+			GameObject_Shoot* shoot = new GameObject_Shoot;
+			mShoot[Counting] = shoot;
+			mShoot[Counting]->SetPosition(mPlayer.GetPositionX()+200, mPlayer.GetPositionY()+150);
+			Counting++;
+		}
+
+		for (int i = 0; i < Counting; i++)
+		{
+			if (mShoot[i] != 0)
+			{
+				mShoot[i]->Updata();
+			}
+		}
 	}
 
 	void Application::LateUpdata()
@@ -80,8 +99,14 @@ namespace in
 
 		Time::Render(mBackHdc);
 		mPlayer.Render(mBackHdc);
-		//mPlayer_Red.Render(mHdc);
-		//mPlayer_Monster.Render(mHdc);
+
+		for (int i = 0; i < Counting; i++)
+		{
+			if (mShoot[i] != 0)
+			{
+				mShoot[i]->Render(mBackHdc);
+			}
+		}
 
 		// 백버퍼에 있는 것을 원본 버퍼에 복사(그려준다)
 		BitBlt(mHdc, 0, 0, mWidth, mHeight

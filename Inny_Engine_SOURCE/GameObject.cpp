@@ -1,6 +1,7 @@
 #include "iGameObject.h"
 #include "iInput.h"
 #include "ITime.h"
+#include "iGameObject_Shoot.h"
 
 namespace in
 {

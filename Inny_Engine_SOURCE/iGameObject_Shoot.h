@@ -3,11 +3,11 @@
 
 namespace in
 {
-	class GameObject_Monster
+	class GameObject_Shoot
 	{
 	public:
-		GameObject_Monster();
-		~GameObject_Monster();
+		GameObject_Shoot();
+		~GameObject_Shoot();
 
 		void Updata();
 		void LataUpdata();

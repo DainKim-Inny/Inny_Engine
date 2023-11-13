@@ -2,7 +2,7 @@
 #include "CommonInclude.h"
 #include "iGameObject.h"
 #include "iGameObject_Red.h"
-#include "iGameObject_Monster.h"
+#include "iGameObject_Shoot.h"
 
 namespace in
 {
@@ -24,13 +24,14 @@ namespace in
 		HDC mHdc;
 
 		HDC mBackHdc;
-		HBITMAP mBackBitmap;
+		HBITMAP mBackBitmap;  // 추가 DC 만들어주기
 
-		UINT mWidth;
-		UINT mHeight;
+		UINT mWidth;  // 해상도 저장
+		UINT mHeight;  // 해상도 저장
 			
 		GameObject mPlayer;
 		GameObject_Red mPlayer_Red;
-		GameObject_Monster mPlayer_Monster;
+		GameObject_Shoot* mShoot[1000] = {};
+		int Counting;
 	};
 }

@@ -17,7 +17,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Monster.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Shoot.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Red.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ITime.h" />
@@ -25,7 +25,7 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Monster.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Shoot.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Red.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)iInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ITime.cpp" />
