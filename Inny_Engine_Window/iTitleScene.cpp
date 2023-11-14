@@ -1,5 +1,6 @@
 #include "iTitleScene.h"
 #include "iGameObject.h"
+#include "iGameObject_Red.h"
 
 namespace in
 {
@@ -17,8 +18,8 @@ namespace in
 	{
 		for (int i = 0; i < 2; i++)
 		{
-			GameObject* obj = new GameObject();
-			obj->SetPosition(500, 500);
+			GameObject_Red* obj = new GameObject_Red();
+			obj->SetPosition(rand()%500, rand()%500);
 			AddGameObject(obj);
 		}
 	}

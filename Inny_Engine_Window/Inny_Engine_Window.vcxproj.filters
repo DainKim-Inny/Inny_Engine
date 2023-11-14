@@ -21,11 +21,11 @@
     <ClInclude Include="iEndScene.h">
       <Filter>Scenes\EndScene</Filter>
     </ClInclude>
-    <ClInclude Include="iPlayScene.h">
-      <Filter>Scenes\PlayScene</Filter>
-    </ClInclude>
     <ClInclude Include="iTitleScene.h">
       <Filter>Scenes\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="iPlayScene.h">
+      <Filter>Scenes\PlayScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

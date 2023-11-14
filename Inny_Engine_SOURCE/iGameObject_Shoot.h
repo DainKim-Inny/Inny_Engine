@@ -1,30 +1,19 @@
 #pragma once
 #include "CommonInclude.h"
+#include "iGameObject.h"
 
 namespace in
 {
-	class GameObject_Shoot
+	class GameObject_Shoot : public GameObject
 	{
 	public:
 		GameObject_Shoot();
 		~GameObject_Shoot();
 
-		void Updata();
-		void LataUpdata();
-		void Render(HDC hdc);
-
-		void SetPosition(float x, float y)
-		{
-			mX = x;
-			mY = y;
-		}
-
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
+		void Updata() override;
+		void LateUpdata() override;
+		void Render(HDC hdc) override;
 
 	private:
-		float mX;
-		float mY;
-		float mSpeed;
 	};
 }

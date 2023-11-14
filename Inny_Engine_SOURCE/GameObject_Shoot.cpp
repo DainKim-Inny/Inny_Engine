@@ -1,11 +1,8 @@
 #include "iGameObject_Shoot.h"
-#include "iInput.h"
-#include "iApplication.h"
 
 namespace in
 {
 	GameObject_Shoot::GameObject_Shoot()
-		: mX(0.0f), mY(0.0f), mSpeed(0.0f)
 	{
 
 	}
@@ -17,12 +14,12 @@ namespace in
 
 	void GameObject_Shoot::Updata()
 	{
-		mX += 0.5f;
+		GameObject::Updata();
 	}
 
-	void GameObject_Shoot::LataUpdata()
+	void GameObject_Shoot::LateUpdata()
 	{
-
+		GameObject::LateUpdata();
 	}
 
 	void GameObject_Shoot::Render(HDC hdc)
@@ -30,7 +27,7 @@ namespace in
 		HBRUSH GreenBrush = CreateSolidBrush(RGB(0, 255, 0));
 		HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, GreenBrush);
 
-		Rectangle(hdc, mX, mY, 50 + mX, 50 + mY);
+		Rectangle(hdc, 100+GetPositionX(), 200+GetPositionY(), 200 + GetPositionX(), 300 + GetPositionY());
 
 		SelectObject(hdc, OldBrush);
 		DeleteObject(GreenBrush);

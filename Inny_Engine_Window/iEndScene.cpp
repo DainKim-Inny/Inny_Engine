@@ -1,5 +1,6 @@
 #include "iEndScene.h"
 #include "iGameObject.h"
+#include "iGameObject_Shoot.h"
 
 namespace in
 {
@@ -15,7 +16,7 @@ namespace in
 	
 	void EndScene::Initialize()
 	{
-		GameObject* obj = new GameObject();
+		GameObject_Shoot* obj = new GameObject_Shoot();
 		obj->SetPosition(100, 100);
 		AddGameObject(obj);
 	}
