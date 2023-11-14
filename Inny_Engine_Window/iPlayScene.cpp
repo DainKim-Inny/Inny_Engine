@@ -15,7 +15,7 @@ namespace in
 	
 	void PlayScene::Initialize()
 	{
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			GameObject* obj = new GameObject();
 			obj->SetPosition(rand() % 1600, rand() % 900);

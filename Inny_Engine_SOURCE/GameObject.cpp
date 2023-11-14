@@ -52,7 +52,7 @@ namespace in
 		HBRUSH BlueBrush = CreateSolidBrush(RGB(rand()% 255, rand() % 255, rand() % 255));
 		HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, BlueBrush);
 
-		Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
+		Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, OldBrush);
 		DeleteObject(BlueBrush);

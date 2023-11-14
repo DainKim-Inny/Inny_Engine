@@ -130,11 +130,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="iEndScene.h" />
     <ClInclude Include="iLoadScenes.h" />
     <ClInclude Include="iPlayScene.h" />
+    <ClInclude Include="iTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="iEndScene.cpp" />
     <ClCompile Include="iPlayScene.cpp" />
+    <ClCompile Include="iTitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
