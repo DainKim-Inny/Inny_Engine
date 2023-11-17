@@ -1,14 +1,11 @@
 #pragma once
-#include "..\Inny_Engine_SOURCE\iScene.h"
+#include "..\\Inny_Engine_SOURCE\\iGameObject.h"
 
 namespace in
 {
-	class TitleScene : public Scene
+	class Player : public GameObject
 	{
 	public:
-		TitleScene();
-		~TitleScene();
-
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
@@ -17,4 +14,5 @@ namespace in
 	private:
 
 	};
+
 }

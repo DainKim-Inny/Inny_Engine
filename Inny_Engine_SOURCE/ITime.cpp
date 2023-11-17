@@ -16,7 +16,7 @@ namespace in
 		QueryPerformanceCounter(&mPrevFrequency);
 	}
 
-	void Time::Updata()
+	void Time::Update()
 	{
 		// Applicatio Run() 한번 진행될 때 마다 진동 수 알고 싶음 -> 프로그램 시작 시 진동수 / CPU의 고유 진동수
 		QueryPerformanceCounter(&mCurrentFrequency);

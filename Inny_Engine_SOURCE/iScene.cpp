@@ -15,7 +15,7 @@ namespace in
 	{
 	}
 	
-	void Scene::Updata()
+	void Scene::Update()
 	{
 		//for (int i = 0; i < mGameObjects.size(); i++)
 		//{
@@ -24,15 +24,15 @@ namespace in
 		// 범위 기반 for문
 		for (GameObject* gameObj : mGameObjects)  // mGameObjects index 하나씩 받아서 gameObj에 넣는다
 		{
-			gameObj->Updata();
+			gameObj->Update();
 		}
 	}
 	
-	void Scene::LateUpdata()
+	void Scene::LateUpdate()
 	{
 		for (GameObject* gameObj : mGameObjects) 
 		{
-			gameObj->LateUpdata();
+			gameObj->LateUpdate();
 		}
 	}
 	

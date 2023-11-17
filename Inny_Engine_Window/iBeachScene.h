@@ -3,15 +3,15 @@
 
 namespace in
 {
-	class EndScene : public Scene
+	class BeachScene : public Scene
 	{
 	public:
-		EndScene();
-		~EndScene();
+		BeachScene();
+		~BeachScene();
 
 		void Initialize() override;
-		void Updata() override;
-		void LateUpdata() override;
+		void Update() override;
+		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
 	private:

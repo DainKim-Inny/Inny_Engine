@@ -9,7 +9,7 @@ namespace in
 	{
 	public:
 		static void Initialize();
-		static void Updata();
+		static void Update();
 		static void Render(HDC hdc);
 
 		static float DeltaTime() { return DeltaTimeValue; }

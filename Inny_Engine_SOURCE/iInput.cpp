@@ -27,7 +27,7 @@ namespace in
 		}
 	}
 
-	void in::Input::Updata()
+	void in::Input::Update()
 	{
 		// mKeys 안에 키 정보가 들어가있음
 

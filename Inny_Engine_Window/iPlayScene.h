@@ -10,8 +10,8 @@ namespace in
 		~PlayScene();
 
 		void Initialize() override;
-		void Updata() override;
-		void LateUpdata() override;
+		void Update() override;
+		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
 	private:

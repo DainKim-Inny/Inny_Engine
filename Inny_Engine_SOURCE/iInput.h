@@ -34,7 +34,7 @@ namespace in
 		};
 
 		static void Initialize();
-		static void Updata();
+		static void Update();
 
 		// 키보드 state에 따른 함수
 		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; };

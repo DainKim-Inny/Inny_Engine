@@ -6,55 +6,49 @@
 namespace in
 {
 	GameObject::GameObject()
-		: mX(0.0f), mY(0.0f)
 	{
 
 	}
 
 	GameObject::~GameObject()
 	{
+		for (Component* comp : mComponents)
+		{
+			delete comp;
+			comp = nullptr;
+		}
 
 	}
 
-	void GameObject::Updata()
+	void GameObject::Initialize()
 	{
-		const int speed = 100.0f;
-
-		if (Input::GetKey(eKeyCode::A))
+		for (Component* comp : mComponents)
 		{
-			mX -= speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::D))
-		{
-			mX += speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::W))
-		{
-			mY -= speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::S))
-		{
-			mY += speed * Time::DeltaTime();
+			comp->Initialize();
 		}
 	}
 
-	void GameObject::LateUpdata()
+	void GameObject::Update()
 	{
+		for (Component* comp : mComponents)
+		{
+			comp->Update();
+		}
+	}
 
+	void GameObject::LateUpdate()
+	{
+		for (Component* comp : mComponents)
+		{
+			comp->LateUpdate();
+		}
 	}
 
 	void GameObject::Render(HDC hdc)
 	{
-		// 督空事 持失
-		HBRUSH BlueBrush = CreateSolidBrush(RGB(rand()% 255, rand() % 255, rand() % 255));
-		HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, BlueBrush);
-
-		Rectangle(hdc, mX, mY, 100 + mX, 100 + mY);
-
-		SelectObject(hdc, OldBrush);
-		DeleteObject(BlueBrush);
+		for (Component* comp : mComponents)
+		{
+			comp->Render(hdc);
+		}
 	}
 }

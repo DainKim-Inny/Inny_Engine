@@ -1,5 +1,8 @@
 #include "iPlayScene.h"
 #include "iGameObject.h"
+#include "iPlayer.h"
+#include "iTransform.h"
+#include "iSpriteRender.h"
 
 using namespace std;
 
@@ -15,22 +18,29 @@ namespace in
 	
 	void PlayScene::Initialize()
 	{
-		for (int i = 0; i < 3; i++)
 		{
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
+			Player* Play = new Player();
+
+			Transform* tr = Play->AddComponent<Transform>();
+			tr->SetPos(Vector2(0, 0));
+			tr->SetName(L"Titel_TR");
+
+			SpriteRender* sr = Play->AddComponent<SpriteRender>();
+			sr->SetName(L"Title_SR");
+			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Standard Farm.png");
+
+			AddGameObject(Play);
 		}
 	}
 	
-	void PlayScene::Updata()
+	void PlayScene::Update()
 	{
-		Scene::Updata();
+		Scene::Update();
 	}
 	
-	void PlayScene::LateUpdata()
+	void PlayScene::LateUpdate()
 	{
-		Scene::LateUpdata();
+		Scene::LateUpdate();
 	}
 	
 	void PlayScene::Render(HDC hdc)

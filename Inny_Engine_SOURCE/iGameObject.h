@@ -1,5 +1,8 @@
 #pragma once
 #include "CommonInclude.h"
+#include "iComponent.h"
+
+using namespace std;
 
 namespace in
 {
@@ -9,22 +12,37 @@ namespace in
 		GameObject();
 		~GameObject();
 
-		virtual void Updata();
-		virtual void LateUpdata();
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		virtual void SetPosition(float x, float y)
+		template <typename T>
+		T* AddComponent()
 		{
-			mX = x;
-			mY = y;
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
 		}
 
-		virtual float GetPositionX() { return mX; }
-		virtual float GetPositionY() { return mY; }
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+
+				if (component)
+					break;
+			}
+
+			return component;
+		}
 
 	private:
-		// 게임 오브젝트의 좌표
-		float mX;
-		float mY;
+		vector<Component*> mComponents;
 	};
 }

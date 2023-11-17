@@ -16,17 +16,29 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Red.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject_Shoot.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)iInput.cpp">
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)ITime.cpp">
       <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iSpriteRender.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iTransform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iResources.cpp">
+      <Filter>Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,17 +58,29 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Red.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)iGameObject_Shoot.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)iInput.h">
       <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)ITime.h">
       <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iSpriteRender.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iTransform.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iResources.h">
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +98,15 @@
     </Filter>
     <Filter Include="Time">
       <UniqueIdentifier>{f5188201-e60e-45ef-93f2-3eb8fb64ba90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{786df68b-ea3b-4fec-9c2c-7ca2b13c7f63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{81909c52-f3f2-47b3-9cf0-78bd442c4c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{5373a9d8-130f-4e7c-87b3-c1c988d5b615}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

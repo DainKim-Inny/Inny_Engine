@@ -11,14 +11,14 @@ namespace in
 	{
 	}
 
-	void SceneManager::Updata()
+	void SceneManager::Update()
 	{
-		mActiveScene->Updata();
+		mActiveScene->Update();
 	}
 	
-	void SceneManager::LateUpdata()
+	void SceneManager::LateUpdate()
 	{
-		mActiveScene->LateUpdata();
+		mActiveScene->LateUpdate();
 	}
 	
 	void SceneManager::Render(HDC hdc)

@@ -13,8 +13,8 @@ namespace in
 		~Scene();
 
 		virtual	void Initialize();
-		virtual void Updata();
-		virtual void LateUpdata();
+		virtual void Update();
+		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
 		void AddGameObject(GameObject* gameObject);

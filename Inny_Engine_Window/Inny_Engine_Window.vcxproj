@@ -130,13 +130,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="iEndScene.h" />
+    <ClInclude Include="iBeachScene.h" />
     <ClInclude Include="iLoadScenes.h" />
+    <ClInclude Include="iPlayer.h" />
     <ClInclude Include="iPlayScene.h" />
     <ClInclude Include="iTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="iEndScene.cpp" />
+    <ClCompile Include="iBeachcene.cpp" />
+    <ClCompile Include="iPlayer.cpp" />
     <ClCompile Include="iPlayScene.cpp" />
     <ClCompile Include="iTitleScene.cpp" />
   </ItemGroup>

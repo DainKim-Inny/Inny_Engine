@@ -58,17 +58,17 @@ namespace in
 
 	void Application::Run()
 	{
-		Updata();
+		Update();
 		LateUpdata();
 		Render();
 	}
 
-	void Application::Updata()
+	void Application::Update()
 	{
-		Input::Updata();
-		Time::Updata();
+		Input::Update();
+		Time::Update();
 
-		SceneManager::Updata();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdata()

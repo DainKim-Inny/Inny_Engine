@@ -7,19 +7,19 @@
     <Filter Include="Scenes\PlayScene">
       <UniqueIdentifier>{e7cc7db8-f391-46a9-9012-0768a5788cb6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes\EndScene">
-      <UniqueIdentifier>{a59f14ed-4f59-4652-bfe5-8be744d9619c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scenes\TitleScene">
       <UniqueIdentifier>{951f474f-831e-4033-80f5-77310f1e31db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{8ea20f8c-fcda-424b-a321-9364df9bff50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\BeachScene">
+      <UniqueIdentifier>{a59f14ed-4f59-4652-bfe5-8be744d9619c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="iLoadScenes.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="iEndScene.h">
-      <Filter>Scenes\EndScene</Filter>
+    <ClInclude Include="iBeachScene.h">
+      <Filter>Scenes\BeachScene</Filter>
     </ClInclude>
     <ClInclude Include="iTitleScene.h">
       <Filter>Scenes\TitleScene</Filter>
@@ -27,16 +27,23 @@
     <ClInclude Include="iPlayScene.h">
       <Filter>Scenes\PlayScene</Filter>
     </ClInclude>
+    <ClInclude Include="iLoadScenes.h" />
+    <ClInclude Include="iPlayer.h">
+      <Filter>Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="iEndScene.cpp">
-      <Filter>Scenes\EndScene</Filter>
+    <ClCompile Include="iBeachcene.cpp">
+      <Filter>Scenes\BeachScene</Filter>
     </ClCompile>
     <ClCompile Include="iPlayScene.cpp">
       <Filter>Scenes\PlayScene</Filter>
     </ClCompile>
     <ClCompile Include="iTitleScene.cpp">
       <Filter>Scenes\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="iPlayer.cpp">
+      <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

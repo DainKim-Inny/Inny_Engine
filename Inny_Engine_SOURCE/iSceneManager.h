@@ -37,8 +37,8 @@ namespace in
 		}
 
 		static void Initialize();  // 어떤 씬 만들거야
-		static void Updata();  // 만든 씬 업데이트
-		static void LateUpdata();
+		static void Update();  // 만든 씬 업데이트
+		static void LateUpdate();
 		static void Render(HDC hdc);
 
 	private:
@@ -46,4 +46,3 @@ namespace in
 		static Scene* mActiveScene;  // 실행해야 할 씬은 하나
 	};
 }
-

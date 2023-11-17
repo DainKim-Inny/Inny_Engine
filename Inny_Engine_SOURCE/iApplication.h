@@ -1,8 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
 #include "iGameObject.h"
-#include "iGameObject_Red.h"
-#include "iGameObject_Shoot.h"
 #include "iScene.h"
 
 using namespace std;
@@ -18,7 +16,7 @@ namespace in
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
 		
-		void Updata();
+		void Update();
 		void LateUpdata();
 		void Render();
 
