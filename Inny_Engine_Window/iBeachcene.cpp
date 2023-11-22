@@ -3,12 +3,15 @@
 #include "iPlayer.h"
 #include "iTransform.h"
 #include "iSpriteRender.h"
+#include "iInput.h"
+#include "iSceneManager.h"
 
 using namespace std;
 
 namespace in
 {
 	BeachScene::BeachScene()
+		: bg(nullptr)
 	{
 
 	}
@@ -21,17 +24,17 @@ namespace in
 	void BeachScene::Initialize()
 	{
 		{
-			Player* Beach = new Player();
+			bg = new Player();
 
-			Transform* tr = Beach->AddComponent<Transform>();
+			Transform* tr = bg->AddComponent<Transform>();
 			tr->SetPos(Vector2(0, 0));
 			tr->SetName(L"Beach_TR");
 
-			SpriteRender* sr = Beach->AddComponent < SpriteRender>();
+			SpriteRender* sr = bg->AddComponent < SpriteRender>();
 			sr->SetName(L"Beach_SR");
 			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Beach Overview.png");
 
-			AddGameObject(Beach);
+			AddGameObject(bg, eLayerType::Background);
 		}
 
 	}
@@ -49,5 +52,18 @@ namespace in
 	void BeachScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"Beach Scene";
+		TextOut(hdc, 0, 0, str, 11);
+	}
+
+	void BeachScene::OnEnter()
+	{
+		Scene::OnEnter();
+	}
+	
+	void BeachScene::OnExit()
+	{
+		Scene::OnExit();
 	}
 }

@@ -40,6 +40,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)iResources.cpp">
       <Filter>Resource</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -82,6 +85,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)iResources.h">
       <Filter>Resource</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iEnums.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -107,6 +116,9 @@
     </Filter>
     <Filter Include="Resource">
       <UniqueIdentifier>{5373a9d8-130f-4e7c-87b3-c1c988d5b615}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{129325f9-cd8f-4cf5-a774-7b7448df155c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -3,8 +3,9 @@
 namespace in
 {
 	Scene::Scene()
-		: mGameObjects{}
+		: mLayers{}
 	{
+		CreateLayers();
 	}
 
 	Scene::~Scene()
@@ -13,39 +14,70 @@ namespace in
 
 	void Scene::Initialize()
 	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Initialize();
+		}
 	}
 	
 	void Scene::Update()
 	{
-		//for (int i = 0; i < mGameObjects.size(); i++)
-		//{
-		//	mGameObjects[i]->Updata();
-		//}
-		// 범위 기반 for문
-		for (GameObject* gameObj : mGameObjects)  // mGameObjects index 하나씩 받아서 gameObj에 넣는다
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Update();
+			if (layer == nullptr)
+				continue;
+
+			layer->Update();
 		}
 	}
 	
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : mGameObjects) 
+		for (Layer* layer : mLayers)
 		{
-			gameObj->LateUpdate();
+			if (layer == nullptr)
+				continue;
+
+			layer->LateUpdate();
 		}
 	}
 	
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : mGameObjects) 
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Render(hdc);
+			if (layer == nullptr)
+				continue;
+
+			layer->Render(hdc);
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObj, const eLayerType type)
 	{
-		mGameObjects.push_back(gameObject);
+		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::CreateLayers()
+	{
+		mLayers.resize((UINT)eLayerType::Max);
+
+		for (int i = 0; i < (UINT)eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
+	}
+
+	void Scene::OnEnter()
+	{
+
+	}
+
+	void Scene::OnExit()
+	{
+
 	}
 }

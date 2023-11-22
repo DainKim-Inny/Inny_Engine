@@ -73,7 +73,7 @@ namespace in
 
 	void Application::LateUpdata()
 	{
-
+		SceneManager::LateUpdate();
 	}
 
 	void Application::clearRenderTarget()
