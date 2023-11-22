@@ -5,6 +5,7 @@
 #include "iSpriteRender.h"
 #include "iInput.h"
 #include "iSceneManager.h"
+#include "iObject.h"
 
 using namespace std;
 
@@ -24,19 +25,12 @@ namespace in
 	void BeachScene::Initialize()
 	{
 		{
-			bg = new Player();
-
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-			tr->SetName(L"Beach_TR");
-
+			bg = Object::Instantiate<Player>(eLayerType::Background, Vector2(0.0f, 0.0f));
 			SpriteRender* sr = bg->AddComponent < SpriteRender>();
-			sr->SetName(L"Beach_SR");
 			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Beach Overview.png");
-
-			AddGameObject(bg, eLayerType::Background);
 		}
 
+		Scene::Initialize();
 	}
 	
 	void BeachScene::Update()

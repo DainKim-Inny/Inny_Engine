@@ -2,12 +2,13 @@
 #include "iInput.h"
 #include "ITime.h"
 #include "iGameObject.h"
+#include "ITransform.h"
 
 namespace in
 {
 	GameObject::GameObject()
 	{
-
+		initializeTransform();
 	}
 
 	GameObject::~GameObject()
@@ -50,5 +51,10 @@ namespace in
 		{
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

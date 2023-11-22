@@ -14,6 +14,7 @@ namespace in
 		{
 			T* scene = new T();
 			scene->SetName(name);
+			mActiveScene = scene;
 			scene->Initialize();  // 씬마다 위치 다르기 때문에 초기화
 
 			mScene.insert(make_pair(name, scene));
@@ -21,24 +22,9 @@ namespace in
 			return scene;
 		}
 
-		static Scene* LoadScene(const wstring& name)
-		{
-			if (mActiveScene)
-				mActiveScene->OnExit();
+		static Scene* LoadScene(const wstring& name);
 
-			map<wstring, Scene*>::iterator iter
-				= mScene.find(name);
-
-			if (iter == mScene.end())
-			{
-				return nullptr;
-			}
-
-			mActiveScene = iter->second;
-			mActiveScene->OnEnter();
-
-			return iter->second;
-		}
+		static Scene* GetActiveScene() { return mActiveScene; }
 
 		static void Initialize();  // 어떤 씬 만들거야
 		static void Update();  // 만든 씬 업데이트

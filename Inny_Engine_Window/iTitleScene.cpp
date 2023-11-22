@@ -6,6 +6,7 @@
 #include "IInput.h"
 #include "iPlayScene.h"
 #include "iSceneManager.h"
+#include "iObject.h"
 
 using namespace std;
 
@@ -25,32 +26,18 @@ namespace in
 	void TitleScene::Initialize()
 	{
 		{
-			bg = new Player();
-
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-			tr->SetName(L"Title_TR");
-
+			bg = Object::Instantiate<Player>(eLayerType::Background, Vector2(0.0f, 0.0f));
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->SetName(L"Title_SR");
 			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Main cloud.png");
-
-			AddGameObject(bg, eLayerType::Background);
 		}
 
 		{
-			logo = new Player();
-
-			Transform* tr = logo->AddComponent<Transform>();
-			tr->SetPos(Vector2(300, 300));
-			tr->SetName(L"Title_TR");
-
+			logo = Object::Instantiate<Player>(eLayerType::Logo, Vector2(300.0f, 300.0f));
 			SpriteRender* sr = logo->AddComponent<SpriteRender>();
-			sr->SetName(L"Title_SR");
 			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Logo No Background.png");
-
-			AddGameObject(logo, eLayerType::Logo);
 		}
+
+		Scene::Initialize();
 	}
 	
 	void TitleScene::Update()

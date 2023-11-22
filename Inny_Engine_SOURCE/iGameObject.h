@@ -44,6 +44,9 @@ namespace in
 		}
 
 	private:
+		void initializeTransform();
+
+	private:
 		vector<Component*> mComponents;
 	};
 }
