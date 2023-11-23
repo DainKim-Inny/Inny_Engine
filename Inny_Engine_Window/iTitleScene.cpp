@@ -7,6 +7,8 @@
 #include "iPlayScene.h"
 #include "iSceneManager.h"
 #include "iObject.h"
+#include "iTexture.h"
+#include "iResources.h"
 
 using namespace std;
 
@@ -26,15 +28,21 @@ namespace in
 	void TitleScene::Initialize()
 	{
 		{
-			bg = Object::Instantiate<Player>(eLayerType::Background, Vector2(0.0f, 0.0f));
+			bg = Object::Instantiate<Player>(eLayerType::Background);
+
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Main cloud.png");
+
+			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Title BG");
+			sr->SetTexture(bg);
 		}
 
 		{
-			logo = Object::Instantiate<Player>(eLayerType::Logo, Vector2(300.0f, 300.0f));
+			logo = Object::Instantiate<Player>(eLayerType::Logo, Vector2(300.0f, 200.0f));
+
 			SpriteRender* sr = logo->AddComponent<SpriteRender>();
-			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Logo No Background.png");
+
+			graphics::Texture* logo = Resources::Find<graphics::Texture>(L"Logo");
+			sr->SetTexture(logo);
 		}
 
 		Scene::Initialize();

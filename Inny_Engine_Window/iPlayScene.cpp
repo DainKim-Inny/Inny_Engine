@@ -7,6 +7,8 @@
 #include "iTitleScene.h"
 #include "iSceneManager.h"
 #include "iObject.h"
+#include "iTexture.h"
+#include "iResources.h"
 
 using namespace std;
 
@@ -24,15 +26,21 @@ namespace in
 	void PlayScene::Initialize()
 	{
 		{
-			bg = Object::Instantiate<Player>(eLayerType::Background, Vector2(0.0f, 0.0f));
+			bg = Object::Instantiate<Player>(eLayerType::Background);
+
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Standard Farm.png");
+
+			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Play BG");
+			sr->SetTexture(bg);
 		}
 
 		{
 			Animal = Object::Instantiate<Player>(eLayerType::NPC, Vector2(600.0f, 100.0f));
+
 			SpriteRender* sr = Animal->AddComponent<SpriteRender>();
-			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Chicken White.png");
+
+			graphics::Texture* Animal = Resources::Find<graphics::Texture>(L"Chicken");
+			sr->SetTexture(Animal);
 		}
 
 		Scene::Initialize();

@@ -135,6 +135,7 @@
     <ClInclude Include="iPlayer.h" />
     <ClInclude Include="iPlayScene.h" />
     <ClInclude Include="iTitleScene.h" />
+    <ClInclude Include="iLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iBeachcene.cpp" />

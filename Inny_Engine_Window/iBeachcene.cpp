@@ -6,6 +6,8 @@
 #include "iInput.h"
 #include "iSceneManager.h"
 #include "iObject.h"
+#include "iTexture.h"
+#include "iResources.h"
 
 using namespace std;
 
@@ -25,9 +27,12 @@ namespace in
 	void BeachScene::Initialize()
 	{
 		{
-			bg = Object::Instantiate<Player>(eLayerType::Background, Vector2(0.0f, 0.0f));
-			SpriteRender* sr = bg->AddComponent < SpriteRender>();
-			sr->ImageLoad(L"C:\\Users\\kimda\\source\\repos\\Inny_Engine\\Resource\\Beach Overview.png");
+			bg = Object::Instantiate<Player>(eLayerType::Background);
+
+			SpriteRender* sr = bg->AddComponent<SpriteRender>();
+
+			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Beach BG");
+			sr->SetTexture(bg);
 		}
 
 		Scene::Initialize();

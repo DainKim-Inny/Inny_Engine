@@ -20,11 +20,11 @@ namespace in
 		void LateUpdata();
 		void Render();
 
+		HDC GetHdc() { return mHdc; }
+
 	private:
 		void clearRenderTarget();
 		void copyRenderTarget(HDC source, HDC dest);
-
-
 
 	private:
 		HWND mHwnd;

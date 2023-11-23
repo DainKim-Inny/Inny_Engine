@@ -4,9 +4,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)iEntity.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)iScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -43,14 +40,16 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)iLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iEntity.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)iTexture.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)iApplication.h">
       <Filter>Application</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)iEntity.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)iScene.h">
       <Filter>Scene</Filter>
@@ -85,14 +84,23 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)iResources.h">
       <Filter>Resource</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)iEnums.h">
-      <Filter>Resource</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)iLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)iObject.h">
       <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iEnums.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iEntity.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)iTexture.h">
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +130,9 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{129325f9-cd8f-4cf5-a774-7b7448df155c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other">
+      <UniqueIdentifier>{b8611694-d5af-43d1-874b-f18d88e7a782}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

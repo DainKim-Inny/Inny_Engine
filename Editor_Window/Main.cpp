@@ -6,6 +6,7 @@
 
 #include "..\\Inny_Engine_SOURCE\iApplication.h"
 #include "..\\Inny_Engine_Window\iLoadScenes.h"
+#include "..\\Inny_Engine_Window\iLoadResources.h"
 
 in::Application application;
 
@@ -137,6 +138,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // load Scene
+   in::LoadResources();
    in::LoadScenes();
 
    return TRUE;

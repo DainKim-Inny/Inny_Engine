@@ -31,6 +31,7 @@
     <ClInclude Include="iPlayer.h">
       <Filter>Player</Filter>
     </ClInclude>
+    <ClInclude Include="iLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iBeachcene.cpp">
