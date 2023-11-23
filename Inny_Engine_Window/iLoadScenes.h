@@ -12,6 +12,6 @@ namespace in
 		SceneManager::CreateScene<BeachScene>(L"BeachScene");
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 	
-		SceneManager::LoadScene(L"TitleScene");
+		SceneManager::LoadScene(L"BeachScene");
 	}
 }
