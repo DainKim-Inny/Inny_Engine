@@ -19,6 +19,10 @@ namespace in
 
 	private:
 		class Player* bg;
-		class Player* logo;
+		class Player* Logo;
+		class Player* NewButton;
+		class Player* LoadButton;
+		class Player* ExitButton;
+		class Player* Bird;
 	};
 }

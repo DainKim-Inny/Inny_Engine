@@ -1,5 +1,4 @@
 #include "iBeachScene.h"
-#include "iGameObject.h"
 #include "iPlayer.h"
 #include "iTransform.h"
 #include "iSpriteRender.h"
@@ -8,6 +7,10 @@
 #include "iObject.h"
 #include "iTexture.h"
 #include "iResources.h"
+#include "iPlayerScript.h"
+#include "iCamera.h"
+#include "iRenderer.h"
+#include "iTitleScene.h"
 
 using namespace std;
 
@@ -26,10 +29,15 @@ namespace in
 	
 	void BeachScene::Initialize()
 	{
+		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, Vector2(820.0f, 470.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+
 		{
 			bg = Object::Instantiate<Player>(eLayerType::Background);
 
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
+			sr->SetSize(Vector2(1.3f, 1.5f));
 
 			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Beach BG");
 			sr->SetTexture(bg);
@@ -46,6 +54,11 @@ namespace in
 	void BeachScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 	
 	void BeachScene::Render(HDC hdc)

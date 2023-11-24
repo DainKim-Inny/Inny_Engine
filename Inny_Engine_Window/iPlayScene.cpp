@@ -1,14 +1,16 @@
 #include "iPlayScene.h"
-#include "iGameObject.h"
 #include "iPlayer.h"
 #include "iTransform.h"
 #include "iSpriteRender.h"
 #include "iInput.h"
-#include "iTitleScene.h"
+#include "iBeachScene.h"
 #include "iSceneManager.h"
 #include "iObject.h"
 #include "iTexture.h"
 #include "iResources.h"
+#include "iPlayerScript.h"
+#include "iCamera.h"
+#include "iRenderer.h"
 
 using namespace std;
 
@@ -25,10 +27,15 @@ namespace in
 	
 	void PlayScene::Initialize()
 	{
+		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, Vector2(820.0f, 470.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+
 		{
 			bg = Object::Instantiate<Player>(eLayerType::Background);
 
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
+			sr->SetSize(Vector2(1.7f, 1.0f));
 
 			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Play BG");
 			sr->SetTexture(bg);
@@ -38,6 +45,8 @@ namespace in
 			Animal = Object::Instantiate<Player>(eLayerType::NPC, Vector2(600.0f, 100.0f));
 
 			SpriteRender* sr = Animal->AddComponent<SpriteRender>();
+
+			Animal->AddComponent<PlayerScript>();
 
 			graphics::Texture* Animal = Resources::Find<graphics::Texture>(L"Chicken");
 			sr->SetTexture(Animal);
@@ -57,7 +66,7 @@ namespace in
 
 		if (Input::GetKeyDown(eKeyCode::N))
 		{
-			SceneManager::LoadScene(L"TitleScene");
+			SceneManager::LoadScene(L"BeachScene");
 		}
 	}
 	

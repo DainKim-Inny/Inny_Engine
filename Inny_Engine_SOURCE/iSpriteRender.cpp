@@ -1,11 +1,12 @@
 #include "iSpriteRender.h"
 #include "iGameObject.h"
 #include "iTransform.h"
+#include "iRenderer.h"
 
 namespace in
 {
 	SpriteRender::SpriteRender()
-		: Component()
+		: Component(eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
 	{
@@ -34,6 +35,7 @@ namespace in
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{

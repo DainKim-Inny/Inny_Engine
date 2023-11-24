@@ -16,6 +16,12 @@
     <Filter Include="Scenes\BeachScene">
       <UniqueIdentifier>{a59f14ed-4f59-4652-bfe5-8be744d9619c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player\PlayerScript">
+      <UniqueIdentifier>{9080a1fd-868a-4128-86e2-03199f4d1f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player\BirdScript">
+      <UniqueIdentifier>{9dba5d60-00fa-4340-b10f-79b4b2eafe68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iBeachScene.h">
@@ -32,6 +38,12 @@
       <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="iLoadResources.h" />
+    <ClInclude Include="iPlayerScript.h">
+      <Filter>Player\PlayerScript</Filter>
+    </ClInclude>
+    <ClInclude Include="iBirdScript.h">
+      <Filter>Player\BirdScript</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iBeachcene.cpp">
@@ -45,6 +57,12 @@
     </ClCompile>
     <ClCompile Include="iPlayer.cpp">
       <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="iPlayerScript.cpp">
+      <Filter>Player\PlayerScript</Filter>
+    </ClCompile>
+    <ClCompile Include="iBirdScript.cpp">
+      <Filter>Player\BirdScript</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

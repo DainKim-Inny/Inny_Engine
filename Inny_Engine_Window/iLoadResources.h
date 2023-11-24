@@ -9,7 +9,11 @@ namespace in
 		Resources::Load<graphics::Texture>(L"Title BG", L"..\\Resource\\Main cloud.png");
 		Resources::Load<graphics::Texture>(L"Play BG", L"..\\Resource\\Standard Farm.png");
 		Resources::Load<graphics::Texture>(L"Beach BG", L"..\\Resource\\Beach Overview.png");
-		Resources::Load<graphics::Texture>(L"Logo", L"..\\Resource\\Logo No Background.png");
+		Resources::Load<graphics::Texture>(L"Logo", L"..\\Resource\\Logo.png");
+		Resources::Load<graphics::Texture>(L"LoadButton", L"..\\Resource\\Load.png");
+		Resources::Load<graphics::Texture>(L"NewButton", L"..\\Resource\\New.png");
+		Resources::Load<graphics::Texture>(L"ExitButton", L"..\\Resource\\Exit.png");
+		Resources::Load<graphics::Texture>(L"Bird", L"..\\Resource\\Bird.png");
 		Resources::Load<graphics::Texture>(L"Chicken", L"..\\Resource\\Chicken White.png");
 	}
 }

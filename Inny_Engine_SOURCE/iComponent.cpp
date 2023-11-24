@@ -2,7 +2,8 @@
 
 namespace in
 {
-	Component::Component()
+	Component::Component(eComponentType type)
+		: mType(type)
 	{
 	}
 

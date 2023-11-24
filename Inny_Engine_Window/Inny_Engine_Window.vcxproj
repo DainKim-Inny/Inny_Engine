@@ -131,15 +131,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="iBeachScene.h" />
+    <ClInclude Include="iBirdScript.h" />
     <ClInclude Include="iLoadScenes.h" />
     <ClInclude Include="iPlayer.h" />
+    <ClInclude Include="iPlayerScript.h" />
     <ClInclude Include="iPlayScene.h" />
     <ClInclude Include="iTitleScene.h" />
     <ClInclude Include="iLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iBeachcene.cpp" />
+    <ClCompile Include="iBirdScript.cpp" />
     <ClCompile Include="iPlayer.cpp" />
+    <ClCompile Include="iPlayerScript.cpp" />
     <ClCompile Include="iPlayScene.cpp" />
     <ClCompile Include="iTitleScene.cpp" />
   </ItemGroup>
