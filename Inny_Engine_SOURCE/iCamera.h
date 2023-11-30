@@ -3,7 +3,7 @@
 
 namespace in
 {
-	using namespace in::math;
+	using namespace in;
 
 	class Camera : public Component
 	{

@@ -13,7 +13,8 @@ namespace in
 		Resources::Load<graphics::Texture>(L"LoadButton", L"..\\Resource\\Load.png");
 		Resources::Load<graphics::Texture>(L"NewButton", L"..\\Resource\\New.png");
 		Resources::Load<graphics::Texture>(L"ExitButton", L"..\\Resource\\Exit.png");
-		Resources::Load<graphics::Texture>(L"Bird", L"..\\Resource\\Bird.png");
+		Resources::Load<graphics::Texture>(L"Bird", L"..\\Resource\\Bird.bmp");
 		Resources::Load<graphics::Texture>(L"Chicken", L"..\\Resource\\Chicken White.png");
+		Resources::Load<graphics::Texture>(L"Chicken2", L"..\\Resource\\Chicken White.bmp");
 	}
 }

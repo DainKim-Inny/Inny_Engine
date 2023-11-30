@@ -3,7 +3,7 @@
 namespace in
 {
 	Component::Component(eComponentType type)
-		: mType(type)
+		: mType(type), mOwner(nullptr)
 	{
 	}
 

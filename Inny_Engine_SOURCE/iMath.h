@@ -1,6 +1,6 @@
 #pragma once
 
-namespace in::math
+namespace in
 {
 	struct Vector2
 	{

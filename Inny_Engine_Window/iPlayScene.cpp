@@ -11,6 +11,7 @@
 #include "iPlayerScript.h"
 #include "iCamera.h"
 #include "iRenderer.h"
+#include "iAnimator.h"
 
 using namespace std;
 
@@ -43,13 +44,12 @@ namespace in
 
 		{
 			Animal = Object::Instantiate<Player>(eLayerType::NPC, Vector2(600.0f, 100.0f));
-
-			SpriteRender* sr = Animal->AddComponent<SpriteRender>();
-
 			Animal->AddComponent<PlayerScript>();
 
-			graphics::Texture* Animal = Resources::Find<graphics::Texture>(L"Chicken");
-			sr->SetTexture(Animal);
+			graphics::Texture* AnimalTexture = Resources::Find<graphics::Texture>(L"Chicken2");
+			Animator* animator = Animal->AddComponent<Animator>();
+			animator->CreateAnimation(L"ChickenMove", AnimalTexture, Vector2(0.0f, 0.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.5f);
+			animator->PlayAnimation(L"ChickenMove", true);
 		}
 
 		Scene::Initialize();

@@ -4,8 +4,6 @@
 
 namespace in
 {
-	using namespace math;
-
 	class Transform : public Component
 	{
 	public:

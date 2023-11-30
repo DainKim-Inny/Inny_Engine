@@ -12,6 +12,7 @@
 #include "iBirdScript.h"
 #include "iCamera.h"
 #include "iRenderer.h"
+#include "iAnimator.h"
 
 using namespace std;
 
@@ -85,18 +86,17 @@ namespace in
 		}
 
 		{
-			Bird = Object::Instantiate<Player>(eLayerType::Background, Vector2(1550.0f, 400.0f));
-
-			SpriteRender* sr = Bird->AddComponent<SpriteRender>();
-			sr->SetSize(Vector2(2.0f, 2.0f));
-
+			Bird = Object::Instantiate<Player>(eLayerType::Background, Vector2(1500.0f, 400.0f));
 			Bird->AddComponent<BirdScript>();
 
-			graphics::Texture* Bird = Resources::Find<graphics::Texture>(L"Bird");
-			sr->SetTexture(Bird);
+			graphics::Texture* BirdTexture = Resources::Find<graphics::Texture>(L"Bird");
+
+			Animator* animator = Bird->AddComponent<Animator>();
+			animator->CreateAnimation(L"BirdMove", BirdTexture
+				, Vector2(0.0f, 0.0f), Vector2(26.0f, 18.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->PlayAnimation(L"BirdMove", true);
 		}
-
-
 
 		Scene::Initialize();
 	}
