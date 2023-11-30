@@ -28,19 +28,19 @@ namespace in
 	
 	void PlayScene::Initialize()
 	{
-		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, Vector2(820.0f, 470.0f));
+		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::NPC, Vector2(820.0f, 470.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
-		{
-			bg = Object::Instantiate<Player>(eLayerType::Background);
+		//{
+		//	bg = Object::Instantiate<Player>(eLayerType::Background);
 
-			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->SetSize(Vector2(1.7f, 1.0f));
+		//	SpriteRender* sr = bg->AddComponent<SpriteRender>();
+		//	sr->SetSize(Vector2(1.7f, 1.0f));
 
-			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Play BG");
-			sr->SetTexture(bg);
-		}
+		//	graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Play BG");
+		//	sr->SetTexture(bg);
+		//}
 
 		{
 			Animal = Object::Instantiate<Player>(eLayerType::NPC, Vector2(600.0f, 100.0f));
@@ -48,8 +48,32 @@ namespace in
 
 			graphics::Texture* AnimalTexture = Resources::Find<graphics::Texture>(L"Chicken2");
 			Animator* animator = Animal->AddComponent<Animator>();
-			animator->CreateAnimation(L"ChickenMove", AnimalTexture, Vector2(0.0f, 0.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.5f);
-			animator->PlayAnimation(L"ChickenMove", true);
+
+			animator->CreateAnimation(L"LeftWalk", AnimalTexture
+				, Vector2(0.0f, 0.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->CreateAnimation(L"RightWalk", AnimalTexture
+				, Vector2(0.0f, 16.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->CreateAnimation(L"UpWalk", AnimalTexture
+				, Vector2(0.0f, 32.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->CreateAnimation(L"DownWalk", AnimalTexture
+				, Vector2(0.0f, 48.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->CreateAnimation(L"Relex", AnimalTexture
+				, Vector2(0.0f, 64.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->CreateAnimation(L"SitDown", AnimalTexture
+				, Vector2(0.0f, 80.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->CreateAnimation(L"Eatting", AnimalTexture
+				, Vector2(0.0f, 96.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
+
+			animator->PlayAnimation(L"SitDown", false);
+
+			Animal->GetComponent<Transform>()->SetPosition(Vector2(600.0f, 100.0f));
+			Animal->GetComponent<Transform>()->SetScale(Vector2(10.0f, 10.0f));		
 		}
 
 		Scene::Initialize();
