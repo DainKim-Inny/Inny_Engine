@@ -108,7 +108,7 @@ namespace in
 			|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
 		{
 			mState = PlayerScript::eState::SitDown;
-			mAnimator->PlayAnimation(L"SitDown", false);
+			mAnimator->PlayAnimation(L"Relex", true);
 		}
 	}
 }

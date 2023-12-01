@@ -56,10 +56,10 @@
       <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)iAnimation.cpp">
-      <Filter>Animation</Filter>
+      <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)iAnimator.cpp">
-      <Filter>Animation</Filter>
+      <Filter>Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,10 +127,10 @@
       <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)iAnimation.h">
-      <Filter>Animation</Filter>
+      <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)iAnimator.h">
-      <Filter>Animation</Filter>
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +175,6 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{f89cc991-b0f6-49ba-8019-38866f0a036c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Animation">
-      <UniqueIdentifier>{d566bad7-0687-4b28-90bd-ed17ea097757}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

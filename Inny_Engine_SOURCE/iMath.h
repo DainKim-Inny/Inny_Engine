@@ -6,6 +6,7 @@ namespace in
 	{
 		static Vector2 One;
 		static Vector2 Zero;
+		static Vector2 Three;
 
 		float x;
 		float y;

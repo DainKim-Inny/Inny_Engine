@@ -92,10 +92,13 @@ namespace in
 			graphics::Texture* BirdTexture = Resources::Find<graphics::Texture>(L"Bird");
 
 			Animator* animator = Bird->AddComponent<Animator>();
+
 			animator->CreateAnimation(L"BirdMove", BirdTexture
 				, Vector2(0.0f, 0.0f), Vector2(26.0f, 18.0f), Vector2::Zero, 4, 0.1f);
 
 			animator->PlayAnimation(L"BirdMove", true);
+
+			Bird->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 		}
 
 		Scene::Initialize();
