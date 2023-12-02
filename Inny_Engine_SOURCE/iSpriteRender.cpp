@@ -58,9 +58,9 @@ namespace in
 
 			Gdiplus::Graphics graphics(hdc);
 
-			graphics.TranslateTransform(pos.x, pos.y);
+			/*graphics.TranslateTransform(pos.x, pos.y);
 			graphics.RotateTransform(rot);
-			graphics.ScaleTransform(-pos.x, -pos.y);
+			graphics.ScaleTransform(-pos.x, -pos.y);*/
 
 			graphics.DrawImage(mTexture->GetImage()
 				, Gdiplus::Rect

@@ -32,7 +32,7 @@ namespace in
 	
 	void TitleScene::Initialize()
 	{
-		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::None, Vector2(850.0f, 470.0f));
+		GameObject* camera = Object::Instantiate<GameObject>(eLayerType::Background, Vector2(820.0f, 470.0f));  // 820.0, 470.0
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
