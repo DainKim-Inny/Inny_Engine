@@ -1,5 +1,5 @@
-#pragma once
-#include "..\\Inny_Engine_SOURCE\\\iScene.h"
+ #pragma once
+#include "..\Inny_Engine_SOURCE\iScene.h"
 
 namespace in
 {
@@ -20,6 +20,7 @@ namespace in
 	private:
 		class Player* bg;
 		class Player* Animal;
+		class Player* mPlayer;
 	};
 }
 

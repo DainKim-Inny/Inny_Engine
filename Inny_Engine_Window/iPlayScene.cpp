@@ -1,24 +1,22 @@
 #include "iPlayScene.h"
+#include "iGameObject.h"
 #include "iPlayer.h"
-#include "iTransform.h"
-#include "iSpriteRender.h"
-#include "iInput.h"
-#include "iBeachScene.h"
-#include "iSceneManager.h"
+#include "iCamera.h"
 #include "iObject.h"
-#include "iTexture.h"
+#include "iInput.h"
+#include "iRenderer.h"
+#include "iSpriteRender.h"
 #include "iResources.h"
 #include "iPlayerScript.h"
-#include "iCamera.h"
-#include "iRenderer.h"
 #include "iAnimator.h"
+#include "iChickenScript.h"
 
 using namespace std;
 
 namespace in
 {
 	PlayScene::PlayScene()
-		: bg(nullptr), Animal(nullptr)
+		: bg(nullptr), Animal(nullptr), mPlayer(nullptr)
 	{
 	}
 
@@ -33,18 +31,66 @@ namespace in
 		renderer::mainCamera = cameraComp;
 
 		{
-			bg = Object::Instantiate<Player>(eLayerType::Background);
+			bg = Object::Instantiate<Player>(eLayerType::None);
+
+			Object::Instantiate<Player>(eLayerType::Player);
+
 
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->SetSize(Vector2(1.7f, 1.0f));
+			sr->SetSize(Vector2(1.7f, 1.2f));
 
 			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Play BG");
 			sr->SetTexture(bg);
 		}
 
 		{
+			mPlayer = Object::Instantiate<Player>(eLayerType::Player);
+			mPlayer->AddComponent<PlayerScript>();
+
+			graphics::Texture* PlayerTexture = Resources::Find<graphics::Texture>(L"Player");
+
+			Animator* playerAnimator = mPlayer->AddComponent<Animator>();
+
+			playerAnimator->CreateAnimation(L"FrontStay", PlayerTexture
+				, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+
+			// RightWalk
+			playerAnimator->CreateAnimation(L"RightWalk", PlayerTexture
+				, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+
+			playerAnimator->CreateAnimation(L"RightWalkStop", PlayerTexture
+				, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+
+			// LeftWalk
+			playerAnimator->CreateAnimation(L"LeftWalk", PlayerTexture
+				, Vector2(1500.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+
+			playerAnimator->CreateAnimation(L"LeftWalkStop", PlayerTexture
+				, Vector2(1500.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+
+			// DownWalk
+			playerAnimator->CreateAnimation(L"DownWalk", PlayerTexture
+				, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 4, 0.1f);
+
+			playerAnimator->CreateAnimation(L"DownWalkStop", PlayerTexture
+				, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+
+			// UpWalk
+			playerAnimator->CreateAnimation(L"UpWalk", PlayerTexture
+				, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 8, 0.1f);
+			
+			playerAnimator->CreateAnimation(L"UpWalkStop", PlayerTexture
+				, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+
+			playerAnimator->PlayAnimation(L"FrontStay", false);
+
+			mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+
+		}
+
+		{
 			Animal = Object::Instantiate<Player>(eLayerType::NPC);
-			Animal->AddComponent<PlayerScript>();
+			Animal->AddComponent<ChickenScript>();
 
 			graphics::Texture* AnimalTexture = Resources::Find<graphics::Texture>(L"Chicken2");
 			

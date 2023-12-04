@@ -40,6 +40,7 @@ namespace in
 			bg = Object::Instantiate<Player>(eLayerType::Background);
 
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
+			sr->SetSize(Vector2(1.0f, 0.9f));
 
 			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Title BG");
 			sr->SetTexture(bg);

@@ -25,6 +25,9 @@
     <Filter Include="Script\PlayerScript">
       <UniqueIdentifier>{9080a1fd-868a-4128-86e2-03199f4d1f1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Script\ChickenScript">
+      <UniqueIdentifier>{07107d66-6d6d-4c0d-bdf2-db9d1a99ad7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iBeachScene.h">
@@ -32,9 +35,6 @@
     </ClInclude>
     <ClInclude Include="iTitleScene.h">
       <Filter>Scenes\TitleScene</Filter>
-    </ClInclude>
-    <ClInclude Include="iPlayScene.h">
-      <Filter>Scenes\PlayScene</Filter>
     </ClInclude>
     <ClInclude Include="iLoadScenes.h" />
     <ClInclude Include="iPlayer.h">
@@ -46,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="iBirdScript.h">
       <Filter>Script\BirdScript</Filter>
+    </ClInclude>
+    <ClInclude Include="iChicken.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="iPlayScene.h">
+      <Filter>Scenes\PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="iChickenScript.h">
+      <Filter>Script\ChickenScript</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +75,12 @@
     </ClCompile>
     <ClCompile Include="iBirdScript.cpp">
       <Filter>Script\BirdScript</Filter>
+    </ClCompile>
+    <ClCompile Include="iChicken.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="iChickenScript.cpp">
+      <Filter>Script\ChickenScript</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

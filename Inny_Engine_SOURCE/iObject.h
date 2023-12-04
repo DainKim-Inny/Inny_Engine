@@ -8,6 +8,7 @@
 
 namespace in
 {
+
 	class Object
 	{
 	public:

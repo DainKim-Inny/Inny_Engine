@@ -37,7 +37,7 @@ namespace in
 			bg = Object::Instantiate<Player>(eLayerType::Background);
 
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->SetSize(Vector2(1.3f, 1.5f));
+			sr->SetSize(Vector2(1.4f, 1.7f));
 
 			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"Beach BG");
 			sr->SetTexture(bg);

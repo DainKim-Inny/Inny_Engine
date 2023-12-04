@@ -10,7 +10,7 @@ namespace in
 		{
 			SitDown,
 			Walk,
-			Sleep,
+			Relex,
 			Attack,
 		};
 
