@@ -10,6 +10,7 @@ namespace in
     ChickenScript::ChickenScript()
         : mState(eChickenState::SitDown)
         , mAnimator(nullptr)
+        , mTime(0.0f)
     {
     }
 
@@ -36,12 +37,14 @@ namespace in
         case in::ChickenScript::eChickenState::Walk:
             move();
             break;
-
         case in::ChickenScript::eChickenState::Sleep:
+            sleep();
             break;
         case in::ChickenScript::eChickenState::Relex:
+            relex();
             break;
         case in::ChickenScript::eChickenState::Eat:
+            eat();
             break;
         default:
             break;
@@ -58,58 +61,103 @@ namespace in
     
     void ChickenScript::sitDown()
     {
-        if (Input::GetKey(eKeyCode::D))
-        {
-            mState = ChickenScript::eChickenState::Walk;
-            mAnimator->PlayAnimation(L"RightWalk");
-        }
+        mTime += Time::DeltaTime();
 
-        if (Input::GetKey(eKeyCode::A))
+        if (mTime > 3.0f)
         {
             mState = ChickenScript::eChickenState::Walk;
-            mAnimator->PlayAnimation(L"LeftWalk");
-        }
-        if (Input::GetKey(eKeyCode::W))
-        {
-            mState = ChickenScript::eChickenState::Walk;
-            mAnimator->PlayAnimation(L"UpWalk");
-        }
-        if (Input::GetKey(eKeyCode::S))
-        {
-            mState = ChickenScript::eChickenState::Walk;
-            mAnimator->PlayAnimation(L"DownWalk");
+            int direction = (rand() % 4);
+            mDirection = (eDirection)direction;
+            PlaywalkAnimationByDirection(mDirection);
+            mTime = 0.0f;
         }
     }
     
     void ChickenScript::move()
     {
+        mTime += Time::DeltaTime();
+        if (mTime > 2.0f)
+        {
+            int eatting = rand() % 2;
+
+            if (eatting)
+            {
+                mState = eChickenState::SitDown;
+                mAnimator->PlayAnimation(L"Chicken_SitDown", true);
+            }
+            else
+            {
+                mState = eChickenState::SitDown;
+                mAnimator->PlayAnimation(L"Chicken_SitDown", true);
+            }
+        }
+
         Transform* tr = GetOwner()->GetComponent<Transform>();
+        translate(tr);
+    }
+
+    void ChickenScript::sleep()
+    {
+
+    }
+    
+    void ChickenScript::relex()
+    {
+        mState = eChickenState::Relex;
+        mAnimator->PlayAnimation(L"Chicken_Rexle", true);
+    }
+    
+    void ChickenScript::eat()
+    {
+        mState = eChickenState::Eat;
+        mAnimator->PlayAnimation(L"Chicken_Eatting", true);
+    }
+    
+    void ChickenScript::PlaywalkAnimationByDirection(eDirection dir)
+    {
+        switch (dir)
+        {
+        case ChickenScript::eDirection::Left:
+            mAnimator->PlayAnimation(L"Chicken_LeftWalk", true);
+            break;
+        case ChickenScript::eDirection::Right:
+            mAnimator->PlayAnimation(L"Chicken_RightWalk", true);
+            break;
+        case ChickenScript::eDirection::Up:
+            mAnimator->PlayAnimation(L"Chicken_UpWalk", true);
+            break;
+        case ChickenScript::eDirection::Down:
+            mAnimator->PlayAnimation(L"Chicken_DownWalk", true);
+            break;
+        default:
+            assert(false);
+            break;
+        }
+    }
+    
+    void ChickenScript::translate(Transform* tr)
+    {
         Vector2 pos = tr->GetPosition();
 
-        if (Input::GetKey(eKeyCode::D))
+        switch (mDirection)
         {
-            pos.x += 100.0f * Time::DeltaTime();
-        }
-        if (Input::GetKey(eKeyCode::A))
-        {
+        case ChickenScript::eDirection::Left:
             pos.x -= 100.0f * Time::DeltaTime();
-        }
-        if (Input::GetKey(eKeyCode::W))
-        {
+            break;
+        case ChickenScript::eDirection::Right:
+            pos.x += 100.0f * Time::DeltaTime();
+            break;
+        case ChickenScript::eDirection::Up:
             pos.y -= 100.0f * Time::DeltaTime();
-        }
-        if (Input::GetKey(eKeyCode::S))
-        {
+            break;
+        case ChickenScript::eDirection::Down:
             pos.y += 100.0f * Time::DeltaTime();
+            break;
+        default:
+            assert(false);
+            break;
         }
 
         tr->SetPosition(pos);
-
-        if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
-            || Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
-        {
-            mState = ChickenScript::eChickenState::SitDown;
-            mAnimator->PlayAnimation(L"Relex", true);
-        }
     }
 }

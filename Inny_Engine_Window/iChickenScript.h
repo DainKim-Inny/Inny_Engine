@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\Inny_Engine_SOURCE\\iScript.h"
+#include "..\\Inny_Engine_SOURCE\\iTransform.h"
 
 namespace in
 {
@@ -15,6 +16,15 @@ namespace in
 			Eat
 		};
 
+		enum class eDirection
+		{
+			Left,
+			Right,
+			Down,
+			Up,
+			End,
+		};
+
 		ChickenScript();
 		~ChickenScript();
 
@@ -26,9 +36,17 @@ namespace in
 	private:
 		void sitDown();
 		void move();
+		void sleep();
+		void relex();
+		void eat();
+
+		void PlaywalkAnimationByDirection(eDirection dir);
+		void translate(Transform* tr);
 
 	private:
 		eChickenState mState;
 		class Animator* mAnimator;
+		eDirection mDirection;
+		float mTime;
 	};
 }

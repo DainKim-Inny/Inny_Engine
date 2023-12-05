@@ -19,7 +19,7 @@ namespace in
 
 	private:
 		class Player* bg;
-		class Player* Animal;
+		class Player* mChicken;
 		class Player* mPlayer;
 	};
 }

@@ -16,7 +16,7 @@ using namespace std;
 namespace in
 {
 	PlayScene::PlayScene()
-		: bg(nullptr), Animal(nullptr), mPlayer(nullptr)
+		: bg(nullptr), mChicken(nullptr), mPlayer(nullptr)
 	{
 	}
 
@@ -89,38 +89,38 @@ namespace in
 		}
 
 		{
-			Animal = Object::Instantiate<Player>(eLayerType::NPC);
-			Animal->AddComponent<ChickenScript>();
+			mChicken = Object::Instantiate<Player>(eLayerType::NPC);
+			mChicken->AddComponent<ChickenScript>();
 
 			graphics::Texture* AnimalTexture = Resources::Find<graphics::Texture>(L"Chicken2");
 			
-			Animator* animator = Animal->AddComponent<Animator>();
+			Animator* animator = mChicken->AddComponent<Animator>();
 
-			animator->CreateAnimation(L"LeftWalk", AnimalTexture
+			animator->CreateAnimation(L"Chicken_LeftWalk", AnimalTexture
 				, Vector2(0.0f, 0.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->CreateAnimation(L"RightWalk", AnimalTexture
+			animator->CreateAnimation(L"Chicken_RightWalk", AnimalTexture
 				, Vector2(0.0f, 16.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->CreateAnimation(L"UpWalk", AnimalTexture
+			animator->CreateAnimation(L"Chicken_UpWalk", AnimalTexture
 				, Vector2(0.0f, 32.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->CreateAnimation(L"DownWalk", AnimalTexture
+			animator->CreateAnimation(L"Chicken_DownWalk", AnimalTexture
 				, Vector2(0.0f, 48.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->CreateAnimation(L"Relex", AnimalTexture
-				, Vector2(0.0f, 64.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 2, 0.1f);
+			animator->CreateAnimation(L"Chicken_Relex", AnimalTexture
+				, Vector2(0.0f, 64.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->CreateAnimation(L"SitDown", AnimalTexture
+			animator->CreateAnimation(L"Chicken_SitDown", AnimalTexture
 				, Vector2(0.0f, 80.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->CreateAnimation(L"Eatting", AnimalTexture
+			animator->CreateAnimation(L"Chicken_Eatting", AnimalTexture
 				, Vector2(0.0f, 96.0f), Vector2(16.0f, 16.0f), Vector2::Zero, 4, 0.1f);
 
-			animator->PlayAnimation(L"SitDown", false);
+			animator->PlayAnimation(L"Chicken_SitDown", true);
 
-			Animal->GetComponent<Transform>()->SetPosition(Vector2(600.0f, 100.0f));
-			Animal->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+			mChicken->GetComponent<Transform>()->SetPosition(Vector2(600.0f, 600.0f));
+			mChicken->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 		}
 
 		Scene::Initialize();

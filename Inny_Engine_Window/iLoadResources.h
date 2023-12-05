@@ -15,7 +15,7 @@ namespace in
 		Resources::Load<graphics::Texture>(L"ExitButton", L"..\\Resource\\Exit.png");
 		Resources::Load<graphics::Texture>(L"Bird", L"..\\Resource\\Bird.bmp");
 		Resources::Load<graphics::Texture>(L"Chicken", L"..\\Resource\\Chicken White.png");
-		Resources::Load<graphics::Texture>(L"Chicken2", L"..\\Resource\\Chicken White.bmp");
+		Resources::Load<graphics::Texture>(L"Chicken2", L"..\\Resource\\Chicken White .bmp");
 		Resources::Load<graphics::Texture>(L"Map", L"..\\Resource\\map.png");
 		Resources::Load<graphics::Texture>(L"Player", L"..\\Resource\\Player.bmp");
 	}
