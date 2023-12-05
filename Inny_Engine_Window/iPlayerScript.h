@@ -8,10 +8,12 @@ namespace in
 	public:
 		enum class eState
 		{
-			SitDown,
+			Idle,
 			Walk,
-			Relex,
-			Attack,
+			UsingAxes,  // µµ³¢Áú
+			UsingHoes,  // È£¹ÌÁú
+			UsingScythe,  // ³´Áú
+			UsingPickaxes // °î±ªÀÌÁú
 		};
 
 		PlayerScript();
@@ -23,8 +25,12 @@ namespace in
 		void Render(HDC hdc) override;
 
 	private:
-		void sitDown();
+		void idle();
 		void move();
+		void usingAxes();
+		//void usingHoes();
+		//void usingScythe();
+		//void usingPickaxes();
 
 	private:
 		eState mState;

@@ -20,6 +20,7 @@ namespace in
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M, 
 		Left, Right, Up, Down, Space,
+		LButton, MButtun, RButton,
 		End
 	};
 
@@ -40,9 +41,16 @@ namespace in
 		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; };
 		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; };
 		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; };  // 누르는 시간 만큼
+		// 마우스 Position 
+		static Vector2 GetMousePosition() { return mMousePosition; }
+
+	private:
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
 		static vector<Key> mKeys; // 어느 클래스 안에서도 접근이 가능해야하므로 정적 변수로 선언
 		// eKeyState mState[] = eKeyState::Up; 키의 input에 대한 상태 저장 
+		static Vector2 mMousePosition;
 	};
 }

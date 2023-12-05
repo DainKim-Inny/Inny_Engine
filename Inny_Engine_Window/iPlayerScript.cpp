@@ -8,7 +8,7 @@
 namespace in
 {
 	PlayerScript::PlayerScript()
-		: mState(PlayerScript::eState::SitDown)
+		: mState(PlayerScript::eState::Idle)
 		, mAnimator(nullptr)
 	{
 	}
@@ -30,16 +30,23 @@ namespace in
 
 		switch (mState)
 		{
-		case in::PlayerScript::eState::SitDown:
-			sitDown();
+		case in::PlayerScript::eState::Idle:
+			idle();
 			break;
 		case in::PlayerScript::eState::Walk:
 			move();
 			break;
-
-		case in::PlayerScript::eState::Relex:
+		case in::PlayerScript::eState::UsingAxes:
+			usingAxes();
 			break;
-		case in::PlayerScript::eState::Attack:
+		case in::PlayerScript::eState::UsingHoes:
+			//usingHoes();
+			break;
+		case in::PlayerScript::eState::UsingScythe:
+			//usingScythe();
+			break;
+		case in::PlayerScript::eState::UsingPickaxes:
+			//usingPickaxes();
 			break;
 		default:
 			break;
@@ -54,7 +61,7 @@ namespace in
 	{
 	}
 
-	void PlayerScript::sitDown()
+	void PlayerScript::idle()
 	{
 		if (Input::GetKey(eKeyCode::Right))
 		{
@@ -76,6 +83,13 @@ namespace in
 		{
 			mState = PlayerScript::eState::Walk;
 			mAnimator->PlayAnimation(L"DownWalk");
+		}
+		if (Input::GetKey(eKeyCode::LButton))
+		{
+			mState = PlayerScript::eState::UsingAxes;
+			mAnimator->PlayAnimation(L"UsingAxes", false);
+
+			Vector2 mousePos = Input::GetMousePosition();
 		}
 
 	}
@@ -106,27 +120,44 @@ namespace in
 
 		if (Input::GetKeyUp(eKeyCode::Right))
 		{
-			mState = PlayerScript::eState::SitDown;
+			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"RightWalkStop", true);
 		}
 
 		if (Input::GetKeyUp(eKeyCode::Left))
 		{
-			mState = PlayerScript::eState::SitDown;
+			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"LeftWalkStop", true);
 		}
 
 		if (Input::GetKeyUp(eKeyCode::Down))
 		{
-			mState = PlayerScript::eState::SitDown;
+			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"DownWalkStop", true);
 		}
 
 		if (Input::GetKeyUp(eKeyCode::Up))
 		{
-			mState = PlayerScript::eState::SitDown;
+			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"UpWalkStop", true);
 		}
 
 	}
+	void PlayerScript::usingAxes()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
+		}
+	}
+	//void PlayerScript::usingHoes()
+	//{
+	//}
+	//void PlayerScript::usingScythe()
+	//{
+	//}
+	//void PlayerScript::usingPickaxes()
+	//{
+	//}
 }

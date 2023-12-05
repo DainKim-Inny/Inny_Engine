@@ -30,6 +30,8 @@ namespace in
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
+
+		// PlayScene 硅版
 		{
 			bg = Object::Instantiate<Player>(eLayerType::None);
 
@@ -43,6 +45,8 @@ namespace in
 			sr->SetTexture(bg);
 		}
 
+
+		// Player 积己
 		{
 			mPlayer = Object::Instantiate<Player>(eLayerType::Player);
 			mPlayer->AddComponent<PlayerScript>();
@@ -51,43 +55,46 @@ namespace in
 
 			Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 
-			playerAnimator->CreateAnimation(L"FrontStay", PlayerTexture
+			// Idle (FrontStay)
+			playerAnimator->CreateAnimation(L"Idle", PlayerTexture
 				, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
 
 			// RightWalk
 			playerAnimator->CreateAnimation(L"RightWalk", PlayerTexture
 				, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
-
 			playerAnimator->CreateAnimation(L"RightWalkStop", PlayerTexture
 				, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
 
 			// LeftWalk
 			playerAnimator->CreateAnimation(L"LeftWalk", PlayerTexture
 				, Vector2(1500.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
-
 			playerAnimator->CreateAnimation(L"LeftWalkStop", PlayerTexture
 				, Vector2(1500.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
 
 			// DownWalk
 			playerAnimator->CreateAnimation(L"DownWalk", PlayerTexture
 				, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 4, 0.1f);
-
 			playerAnimator->CreateAnimation(L"DownWalkStop", PlayerTexture
 				, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
 
 			// UpWalk
 			playerAnimator->CreateAnimation(L"UpWalk", PlayerTexture
 				, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 8, 0.1f);
-			
 			playerAnimator->CreateAnimation(L"UpWalkStop", PlayerTexture
 				, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
 
-			playerAnimator->PlayAnimation(L"FrontStay", false);
+			// UingAxes
+			playerAnimator->CreateAnimation(L"UsingAxes", PlayerTexture
+				, Vector2(750.0f, 500.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+
+			playerAnimator->PlayAnimation(L"Idle", false);
 
 			mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 
 		}
 
+
+		// Chicken 积己
 		{
 			mChicken = Object::Instantiate<Player>(eLayerType::NPC);
 			mChicken->AddComponent<ChickenScript>();
